@@ -1,6 +1,16 @@
-import { chakra, Box, Image, Text } from "@chakra-ui/react";
+import {
+  chakra,
+  Box,
+  Image,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
+} from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
+import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 import { Container } from "@chakra-ui/react";
 
 export const Header = () => {
@@ -68,6 +78,7 @@ export const Header = () => {
         >
           About
         </ChakraLink>
+        <ColorModeSwitcher ml={400} />
       </Container>
     </chakra.header>
   );

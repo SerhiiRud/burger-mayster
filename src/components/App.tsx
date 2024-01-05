@@ -10,7 +10,7 @@ import {
   Grid,
   theme,
 } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import { ColorModeSwitcher } from "./ColorModeSwitcher/ColorModeSwitcher";
 import { Layout } from "./Layout/Layout";
 import { Home } from "../pages/Home/Home";
 import { Food } from "../pages/Food/Food";
