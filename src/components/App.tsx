@@ -1,16 +1,7 @@
 import * as React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher/ColorModeSwitcher";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "../utilities/theme";
 import { Layout } from "./Layout/Layout";
 import { Home } from "../pages/Home/Home";
 import { Food } from "../pages/Food/Food";

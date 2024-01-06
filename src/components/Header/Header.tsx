@@ -1,17 +1,13 @@
 import {
   chakra,
-  Box,
   Image,
   Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
+  Container,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
+import theme from "../../utilities/theme";
 import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
-import { Container } from "@chakra-ui/react";
 
 export const Header = () => {
   return (
@@ -50,7 +46,7 @@ export const Header = () => {
           to="/food"
           fontSize={32}
           fontWeight={700}
-          color="#7b3d22"
+          color={theme.colors.mainText}
           textShadow="2px 2px rgba(0, 0, 0, 0.1)"
           _hover={{ transform: "translate(0px, -2px)" }}
         >
