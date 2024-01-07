@@ -1,3 +1,5 @@
+import { Box } from "@chakra-ui/react";
+
 export const Home = () => {
-  return <div>Home page</div>;
+  return <Box h="400px">Home page</Box>;
 };

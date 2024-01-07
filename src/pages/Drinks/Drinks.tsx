@@ -1,3 +1,5 @@
+import { Box } from "@chakra-ui/react";
+
 export const Drinks = () => {
-  return <div>Drinks page</div>;
+  return <Box h="400px">Drinks page</Box>;
 };

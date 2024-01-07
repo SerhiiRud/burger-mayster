@@ -1,3 +1,5 @@
+import { Box } from "@chakra-ui/react";
+
 export const About = () => {
-  return <div>About page</div>;
+  return <Box h="400px">About page</Box>;
 };

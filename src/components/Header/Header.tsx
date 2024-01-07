@@ -14,7 +14,6 @@ export const Header = () => {
     <chakra.header border="1px dotted red" w="1920" p="10px 30px 10px 30px">
       <Container
         maxW="1920px"
-        bg="white"
         m="0 auto"
         display="flex"
         gap="20"
@@ -35,7 +34,6 @@ export const Header = () => {
           <Text
             fontFamily="Satisfy"
             fontSize={48}
-            color="#7b3d22"
             textShadow="2px 2px rgba(0, 0, 0, 0.1)"
           >
             Burger Mayster
@@ -46,7 +44,6 @@ export const Header = () => {
           to="/food"
           fontSize={32}
           fontWeight={700}
-          color={theme.colors.mainText}
           textShadow="2px 2px rgba(0, 0, 0, 0.1)"
           _hover={{ transform: "translate(0px, -2px)" }}
         >
@@ -57,7 +54,6 @@ export const Header = () => {
           to="/drinks"
           fontSize={32}
           fontWeight={700}
-          color="#7b3d22"
           textShadow="2px 2px rgba(0, 0, 0, 0.1)"
           _hover={{ transform: "translate(0px, -2px)" }}
         >
@@ -68,7 +64,6 @@ export const Header = () => {
           to="/about"
           fontSize={32}
           fontWeight={700}
-          color="#7b3d22"
           textShadow="2px 2px rgba(0, 0, 0, 0.1)"
           _hover={{ transform: "translate(0px, -2px)" }}
         >
