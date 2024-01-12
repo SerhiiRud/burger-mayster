@@ -1,11 +1,11 @@
-import { TFood } from "../../types/food.type";
+import { TMenuItem } from "../../types/menuItem.type";
 
-export const MenuItem = (data: TFood) => {
+export const MenuItem = ({ item }: TMenuItem) => {
   return (
     <>
-      <p>{data.name}</p>
-      <p>{data.ingredients}</p>
-      <p>Price: ${data.price}</p>
+      <p>{item.name}</p>
+      <p>{item.ingredients}</p>
+      <p>${item.price}</p>
     </>
   );
 };

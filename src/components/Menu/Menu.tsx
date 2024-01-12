@@ -1,12 +1,12 @@
-import { TFood } from "../../types/food.type";
+import { TFoodGallery } from "../../types/foodGallery.type";
 import { MenuItem } from "../MenuItem/MenuItem";
 
-export const Menu = ({ items }: TFood[]) => {
+export const Menu = ({ items }: TFoodGallery) => {
   return (
     <>
       {items.map((item) => (
         <li key={item.id}>
-          <MenuItem data={item} />
+          <MenuItem item={item} />
         </li>
       ))}
     </>
