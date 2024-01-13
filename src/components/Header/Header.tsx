@@ -11,7 +11,7 @@ import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 
 export const Header = () => {
   return (
-    <chakra.header border="1px dotted red" w="1920" p="10px 30px 10px 30px">
+    <chakra.header w="1920" p="10px 30px 10px 30px">
       <Container
         maxW="1920px"
         m="0 auto"
