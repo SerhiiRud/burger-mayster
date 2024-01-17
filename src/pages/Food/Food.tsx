@@ -1,15 +1,19 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { Menu } from "../../components/Menu/Menu";
-//import { food } from "../../utilities/food";
 import { TFoodPage } from "../../types/foodPage.type";
+import { foodFilter } from "../../utilities/foodFilter";
 
 export const Food = ({ food }: TFoodPage) => {
+  const visibleFood = foodFilter(food, "drink");
+  //console.log(food);
+  console.log(visibleFood);
+
   return (
     <Box h="1200px">
       <Heading as="h1" mt="20px" mb="20px" textAlign="center" fontSize="24">
         Food page
       </Heading>
-      <Menu items={food} />
+      <Menu items={visibleFood} />
     </Box>
   );
 };

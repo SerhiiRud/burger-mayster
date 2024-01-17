@@ -23,8 +23,6 @@ export const App = () => {
       try {
         setIsLoading(true);
         const res = await fetchAPI();
-        console.log(res);
-
         setFoodDrinks(res.data);
       } catch (error) {
         if (error instanceof Error) setError(ERROR_MSG);
