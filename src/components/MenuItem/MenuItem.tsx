@@ -12,14 +12,22 @@ export const MenuItem = ({ item }: TMenuItem) => {
       p="6"
       rounded="md"
     >
-      <Image
-        src="../../images/png/tasty-beef-burger-png-medium.jpg"
-        alt="hamburger"
-        mb="30px"
-      ></Image>
+      {item.category === "food" ? (
+        <Image
+          src="../../images/png/tasty-beef-burger-png-medium.jpg"
+          alt="hamburger"
+          mb="30px"
+        ></Image>
+      ) : (
+        <Image
+          src="../../images/png/bottle.jpg"
+          alt="hamburger"
+          mb="30px"
+        ></Image>
+      )}
       <p>{item.name}</p>
-      <p>{item.ingredients}</p>
-      <p>${item.price}</p>
+      <p>Ingredients: {item.ingredients.join(", ")}</p>
+      <p>Price, ${item.price}</p>
     </Container>
   );
 };

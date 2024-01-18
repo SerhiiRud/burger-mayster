@@ -40,7 +40,7 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="food" element={<Food food={foodDrinks} />} />
-            <Route path="drinks" element={<Drinks />} />
+            <Route path="drinks" element={<Drinks food={foodDrinks} />} />
             <Route path="about" element={<About />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>

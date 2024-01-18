@@ -1,12 +1,11 @@
+import { useMemo } from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import { Menu } from "../../components/Menu/Menu";
 import { TFoodPage } from "../../types/foodPage.type";
 import { foodFilter } from "../../utilities/foodFilter";
 
 export const Food = ({ food }: TFoodPage) => {
-  const visibleFood = foodFilter(food, "drink");
-  //console.log(food);
-  console.log(visibleFood);
+  const visibleFood = useMemo(() => foodFilter(food, "food"), [food]);
 
   return (
     <Box h="1200px">
