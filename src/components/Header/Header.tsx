@@ -61,6 +61,16 @@ export const Header = () => {
         </ChakraLink>
         <ChakraLink
           as={ReactRouterLink}
+          to="/orders"
+          fontSize={32}
+          fontWeight={700}
+          textShadow="2px 2px rgba(0, 0, 0, 0.1)"
+          _hover={{ transform: "translate(0px, -2px)" }}
+        >
+          Orders
+        </ChakraLink>
+        <ChakraLink
+          as={ReactRouterLink}
           to="/about"
           fontSize={32}
           fontWeight={700}
