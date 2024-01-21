@@ -1,7 +1,10 @@
-import { Container, Image } from "@chakra-ui/react";
+import { Container, Image, Button } from "@chakra-ui/react";
 import { TMenuItem } from "../../types/menuItem.type";
 
-export const MenuItem = ({ item }: TMenuItem) => {
+export const MenuItem = ({ item, setCart }: TMenuItem) => {
+  const cartHandler = () => {
+    setCart(item);
+  };
   return (
     <Container
       w="500px"
@@ -28,6 +31,9 @@ export const MenuItem = ({ item }: TMenuItem) => {
       <p>{item.name}</p>
       <p>Ingredients: {item.ingredients.join(", ")}</p>
       <p>Price, ${item.price}</p>
+      <Button colorScheme="orange" onClick={cartHandler}>
+        Button
+      </Button>
     </Container>
   );
 };

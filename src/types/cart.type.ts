@@ -1,6 +1,6 @@
 import { TFood } from "./food.type";
 
-export type TFoodGallery = {
-  items: TFood[];
+export type TCart = {
   setCart: React.Dispatch<React.SetStateAction<TFood[]>>;
+  cart: TFood[];
 };

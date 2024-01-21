@@ -4,7 +4,7 @@ import { Menu } from "../../components/Menu/Menu";
 import { TFoodPage } from "../../types/foodPage.type";
 import { foodFilter } from "../../utilities/foodFilter";
 
-export const Drinks = ({ food }: TFoodPage) => {
+export const Drinks = ({ food, setCart }: TFoodPage) => {
   const visibleFood = useMemo(() => foodFilter(food, "drink"), [food]);
 
   return (
@@ -12,7 +12,7 @@ export const Drinks = ({ food }: TFoodPage) => {
       <Heading as="h1" mt="20px" mb="20px" textAlign="center" fontSize="24">
         Drinks page
       </Heading>
-      <Menu items={visibleFood} />
+      <Menu items={visibleFood} setCart={setCart} />
     </Box>
   );
 };

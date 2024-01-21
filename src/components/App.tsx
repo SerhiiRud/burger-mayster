@@ -16,6 +16,7 @@ export const App = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
   const [foodDrinks, setFoodDrinks] = React.useState<TFood[]>([]);
+  const [cart, setCart] = React.useState<TFood[]>([]);
 
   const ERROR_MSG = "Error happend";
 
@@ -40,9 +41,18 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="food" element={<Food food={foodDrinks} />} />
-            <Route path="drinks" element={<Drinks food={foodDrinks} />} />
-            <Route path="orders" element={<Orders />} />
+            <Route
+              path="food"
+              element={<Food food={foodDrinks} setCart={setCart} />}
+            />
+            <Route
+              path="drinks"
+              element={<Drinks food={foodDrinks} setCart={setCart} />}
+            />
+            <Route
+              path="orders"
+              element={<Orders setCart={setCart} cart={cart} />}
+            />
             <Route path="about" element={<About />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
