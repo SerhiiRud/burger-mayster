@@ -35,6 +35,14 @@ export const App = () => {
     fetchData();
   }, []);
 
+  const addToCart = (item: TFood) => {
+    setCart([...cart, item]);
+  };
+
+  const removeFromCart = (id: number) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
+
   return (
     <React.Suspense fallback={<Loader />}>
       <ChakraProvider theme={theme}>
@@ -43,15 +51,15 @@ export const App = () => {
             <Route index element={<Home />} />
             <Route
               path="food"
-              element={<Food food={foodDrinks} setCart={setCart} />}
+              element={<Food food={foodDrinks} addToCart={addToCart} />}
             />
             <Route
               path="drinks"
-              element={<Drinks food={foodDrinks} setCart={setCart} />}
+              element={<Drinks food={foodDrinks} addToCart={addToCart} />}
             />
             <Route
               path="orders"
-              element={<Orders setCart={setCart} cart={cart} />}
+              element={<Orders cart={cart} removeFromCart={removeFromCart} />}
             />
             <Route path="about" element={<About />} />
             <Route path="*" element={<Navigate to="/" />} />

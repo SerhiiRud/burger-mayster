@@ -1,9 +1,9 @@
 import { Container, Image, Button } from "@chakra-ui/react";
 import { TMenuItem } from "../../types/menuItem.type";
 
-export const MenuItem = ({ item, setCart }: TMenuItem) => {
+export const MenuItem = ({ item, addToCart }: TMenuItem) => {
   const cartHandler = () => {
-    setCart(item);
+    addToCart(item);
   };
   return (
     <Container
