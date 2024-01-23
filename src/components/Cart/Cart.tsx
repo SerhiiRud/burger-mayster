@@ -4,10 +4,12 @@ import { CartItem } from "../CartItem/CartItem";
 
 export const Cart = ({ cart, removeFromCart }: TCart) => {
   return (
-    {cart.map((item) => (
+    <Grid templateColumns="repeat(3, 1fr)" gap={3}>
+      {cart.map((item) => (
         <GridItem key={item.id}>
-          <CartItem item={item} />
+          <CartItem item={item} removeFromCart={removeFromCart} />
         </GridItem>
       ))}
+    </Grid>
   );
 };

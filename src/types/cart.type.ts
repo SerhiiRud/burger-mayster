@@ -2,5 +2,5 @@ import { TFood } from "./food.type";
 
 export type TCart = {
   cart: TFood[];
-  removeFromCart: (id: number) => void;
+  removeFromCart: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };

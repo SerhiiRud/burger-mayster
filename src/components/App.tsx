@@ -39,7 +39,10 @@ export const App = () => {
     setCart([...cart, item]);
   };
 
-  const removeFromCart = (id: number) => {
+  const removeFromCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const id = Number(e.currentTarget.id);
+    console.log(id);
+
     setCart(cart.filter((item) => item.id !== id));
   };
 
