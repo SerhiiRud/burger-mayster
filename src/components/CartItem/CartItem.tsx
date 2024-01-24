@@ -33,7 +33,7 @@ export const CartItem = ({ item, removeFromCart }: TCartItem) => {
         id={item.id.toString()}
         onClick={removeFromCart}
       >
-        Button
+        Remove
       </Button>
     </Container>
   );

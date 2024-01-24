@@ -26,6 +26,8 @@ export const App = () => {
         setIsLoading(true);
         const res = await fetchAPI();
         setFoodDrinks(res.data);
+        const storedData = JSON.parse(localStorage.getItem("cart") || "{}");
+        setCart(storedData);
       } catch (error) {
         if (error instanceof Error) setError(ERROR_MSG);
       } finally {
@@ -35,14 +37,23 @@ export const App = () => {
     fetchData();
   }, []);
 
+  React.useEffect(() => {
+    // const initialCart = localStorage.getItem("cart")
+    //   ? localStorage.getItem("cart")
+    //   : [];
+    // console.log(initialCart);
+
+    localStorage.setItem("favs", JSON.stringify(cart));
+  }, [cart]);
+
   const addToCart = (item: TFood) => {
+    const isInCart = cart.find((el) => el.id === item.id);
+    if (isInCart) return;
     setCart([...cart, item]);
   };
 
   const removeFromCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     const id = Number(e.currentTarget.id);
-    console.log(id);
-
     setCart(cart.filter((item) => item.id !== id));
   };
 
