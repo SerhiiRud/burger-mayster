@@ -6,7 +6,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import theme from "../../utilities/theme";
+import theme from "../../utils/theme";
 import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 
 export const Header = () => {

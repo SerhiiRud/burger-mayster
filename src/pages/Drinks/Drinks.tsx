@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import { Menu } from "../../components/Menu/Menu";
 import { TFoodPage } from "../../types/foodPage.type";
-import { foodFilter } from "../../utilities/foodFilter";
+import { foodFilter } from "../../utils/foodFilter";
 
 export const Drinks = ({ food, addToCart }: TFoodPage) => {
   const visibleFood = useMemo(() => foodFilter(food, "drink"), [food]);

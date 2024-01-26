@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../utilities/theme";
+import theme from "../utils/theme";
 import { Loader } from "./Loader/Loader";
 import { Layout } from "./Layout/Layout";
 import { Home } from "../pages/Home/Home";
@@ -9,14 +9,15 @@ import { Food } from "../pages/Food/Food";
 import { Drinks } from "../pages/Drinks/Drinks";
 import { Orders } from "../pages/Orders/Orders";
 import { About } from "../pages/About/About";
-import { fetchAPI } from "../utilities/API";
+import { fetchAPI } from "../utils/API";
 import { TFood } from "../types/food.type";
+import { storedCart } from "../utils/storedCart";
 
 export const App = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
   const [foodDrinks, setFoodDrinks] = React.useState<TFood[]>([]);
-  const [cart, setCart] = React.useState<TFood[]>([]);
+  const [cart, setCart] = React.useState<TFood[]>(storedCart);
 
   const ERROR_MSG = "Error happend";
 
@@ -26,8 +27,6 @@ export const App = () => {
         setIsLoading(true);
         const res = await fetchAPI();
         setFoodDrinks(res.data);
-        const storedData = JSON.parse(localStorage.getItem("cart") || "{}");
-        setCart(storedData);
       } catch (error) {
         if (error instanceof Error) setError(ERROR_MSG);
       } finally {
@@ -38,12 +37,7 @@ export const App = () => {
   }, []);
 
   React.useEffect(() => {
-    // const initialCart = localStorage.getItem("cart")
-    //   ? localStorage.getItem("cart")
-    //   : [];
-    // console.log(initialCart);
-
-    localStorage.setItem("favs", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   const addToCart = (item: TFood) => {
