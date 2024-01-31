@@ -30,7 +30,7 @@ export const CartItem = ({ item, removeFromCart }: TCartItem) => {
       <p>Price, ${item.price}</p>
       <Button
         colorScheme="orange"
-        id={item.id.toString()}
+        id={item._id.toString()}
         onClick={removeFromCart}
       >
         Remove

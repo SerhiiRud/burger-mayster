@@ -13,7 +13,7 @@ export const Cart = ({ cart, removeFromCart }: TCart) => {
   return (
     <Grid templateColumns="repeat(1, 2fr)" gap={3}>
       {cart.map((item) => (
-        <GridItem key={item.id}>
+        <GridItem key={item._id}>
           <CartItem item={item} removeFromCart={removeFromCart} />
         </GridItem>
       ))}

@@ -41,14 +41,14 @@ export const App = () => {
   }, [cart]);
 
   const addToCart = (item: TFood) => {
-    const isInCart = cart.find((el) => el.id === item.id);
+    const isInCart = cart.find((el) => el._id === item._id);
     if (isInCart) return;
     setCart([...cart, item]);
   };
 
   const removeFromCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     const id = Number(e.currentTarget.id);
-    setCart(cart.filter((item) => item.id !== id));
+    setCart(cart.filter((item) => item._id !== id));
   };
 
   return (

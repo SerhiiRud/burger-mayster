@@ -1,5 +1,5 @@
 export type TFood = {
-  id: number;
+  _id: number;
   category: string;
   name: string;
   ingredients: string[];
