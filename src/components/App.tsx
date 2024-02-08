@@ -9,15 +9,18 @@ import { Food } from "../pages/Food/Food";
 import { Drinks } from "../pages/Drinks/Drinks";
 import { Orders } from "../pages/Orders/Orders";
 import { About } from "../pages/About/About";
-import { fetchAPI } from "../utils/API";
+import { fetchApi } from "../utils/API";
 import { TFood } from "../types/food.type";
+import { TOrder } from "../types/orders.type";
 import { storedCart } from "../utils/storedCart";
+import { log } from "console";
 
 export const App = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
   const [foodDrinks, setFoodDrinks] = React.useState<TFood[]>([]);
   const [cart, setCart] = React.useState<TFood[]>(storedCart);
+  const [orders, setOrders] = React.useState<TOrder[]>([]);
 
   const ERROR_MSG = "Error happend";
 
@@ -25,8 +28,10 @@ export const App = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const res = await fetchAPI();
-        setFoodDrinks(res.data);
+        const food = await fetchApi("burgers");
+        setFoodDrinks(food.data);
+        const orders = await fetchApi("orders");
+        setOrders(orders.data);
       } catch (error) {
         if (error instanceof Error) setError(ERROR_MSG);
       } finally {
@@ -51,6 +56,14 @@ export const App = () => {
     setCart(cart.filter((item) => item._id !== id));
   };
 
+  const removeItem = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    collection: TFood[] | TOrder[]
+  ) => {
+    const id = Number(e.currentTarget.id);
+    setCart(collection.filter((item) => item._id !== id));
+  };
+
   return (
     <React.Suspense fallback={<Loader />}>
       <ChakraProvider theme={theme}>
@@ -67,7 +80,13 @@ export const App = () => {
             />
             <Route
               path="orders"
-              element={<Orders cart={cart} removeFromCart={removeFromCart} />}
+              element={
+                <Orders
+                  cart={cart}
+                  orders={orders}
+                  removeFromCart={removeFromCart}
+                />
+              }
             />
             <Route path="about" element={<About />} />
             <Route path="*" element={<Navigate to="/" />} />
